@@ -22,4 +22,5 @@ window.onload = () => {
             convertTextAreaToMarkdown();
         });
     };
+    convertTextAreaToMarkdown();
 };
