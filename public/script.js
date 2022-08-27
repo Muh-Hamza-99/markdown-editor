@@ -15,8 +15,11 @@ window.onload = () => {
     setInterval(() => {
         if (didChangeOccur()) convertTextAreaToMarkdown();
     }, 1000);
-    sharejs.open(document.location.pathname, "text", (error, doc) => {
-        doc.attach_textarea(pad);
-        convertTextAreaToMarkdown();
-    });
+    if (document.location.pathname.length > 1) {
+        var documentName = document.location.pathname.substring(1);
+        sharejs.open(documentName, "text", (error, doc) => {
+            doc.attach_textarea(pad);
+            convertTextAreaToMarkdown();
+        });
+    };
 };
